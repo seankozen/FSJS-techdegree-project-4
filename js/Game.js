@@ -104,7 +104,6 @@ class Game {
         else  {
             overlayTitle.textContent = "Sorry, you are out of guesses!!! You lose!!!";
             screenOverlay.className = 'lose';
-            
         }
         this.resetGame();
     };
