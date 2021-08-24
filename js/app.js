@@ -11,6 +11,10 @@ const computerKeyBoard = document.getElementsByClassName('key');   // Gets keys 
 startButton.addEventListener('click', () =>{
     game = new Game();
     game.startGame();
+
+    // Computer keyboard event listener 
+    document.addEventListener('keydown', keyBoardListener);
+
 });
 
 // Screen keyboard event listener 
@@ -22,14 +26,12 @@ screenKeyboard.addEventListener('click', e => {
     }
 });
 
-// Computer keyboard event listener 
-document.addEventListener('keydown', e =>{
-   let keyPressed = e.key;
-   
-   // Finds correct key that was pressed 
-   for(let i = 0; i < computerKeyBoard.length; i++){
-        if((keyPressed === computerKeyBoard[i].textContent) && computerKeyBoard[i].disabled !== true){
-            game.handleInteraction(computerKeyBoard[i]);
-        }
-    }  
-});
+// Physical keyboard listener function
+function keyBoardListener(e) {
+    let keyPressed = e.key;
+    for(let i = 0; i < computerKeyBoard.length; i++){
+         if((keyPressed === computerKeyBoard[i].textContent) && computerKeyBoard[i].disabled !== true){
+             game.handleInteraction(computerKeyBoard[i]);
+         }
+     }  
+}
