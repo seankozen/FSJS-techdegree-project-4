@@ -104,6 +104,7 @@ class Game {
         else  {
             overlayTitle.textContent = "Sorry, you are out of guesses!!! You lose!!!";
             screenOverlay.className = 'lose';
+            document.removeEventListener('keydown', keyBoardListener);
         }
         this.resetGame();
     };
